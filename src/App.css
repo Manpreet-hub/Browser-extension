@@ -2,37 +2,67 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-image:linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+  url("https://picsum.photos/1366/768");
+z-index: -1;
+background-size: cover;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  min-height: 74vh;
+}
+
+.content{
+  display: flex;
+  flex-flow: column;
+  z-index: 2;
+  align-items: center;
+}
+
+.intro-content{
+  font-size: 4rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.info-p{
+  font-size: 3.4rem;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.intro-input{
+  padding: 2rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 5px solid white;
+  width: 64%;
+  text-align: center;
+  color: white;
+  font-size: 2.8rem;
+  outline: none;
+  margin-bottom: 2rem;
+}
+
+.footer-section{
+  display: flex;
+  justify-content: space-between;
+}
+
+.text{
+  font-size: 2rem;
+  color: white;
+}
+
+.header-section{
+display: flex;
+justify-content: flex-end;
 }
