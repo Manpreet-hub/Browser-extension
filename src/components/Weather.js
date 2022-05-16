@@ -1,10 +1,40 @@
+import { getWeatherData } from "../services/";
+import { useEffect, useState } from "react";
+
 export const Weather = () => {
+  const [weatherInfo, setWeatherInfo] = useState({
+    location: "",
+    temp: "",
+    icon: "",
+  });
+  const [location, setLocation] = useState({ latitude: "", longitude: "" });
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLocation({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    const { latitude, longitude } = location;
+    if (latitude !== "" && longitude !== "")
+      getWeatherData(latitude, longitude, setWeatherInfo);
+    else getWeatherData(28.7041, 77.1025, setWeatherInfo);
+  });
+
   return (
-    <>
-      <div>
-        <div className="temp text para-md">28 ° </div>
-        <div className="temp-location text">Delhi,India</div>
-      </div>
-    </>
+    <div>
+      <img
+        src={`http://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`}
+        width="60px"
+        height="60px"
+        alt={weatherInfo.icon}
+      />
+      <div className="temp text para-md">{weatherInfo.temp}°C</div>
+      <div className="temp-location text">{weatherInfo.location}</div>
+    </div>
   );
 };
