@@ -10,7 +10,7 @@ export const Onboarding = () => {
 
   return (
     <>
-      <div className="main-container">
+      <div className="main-container min-height">
         <div className="content">
           <h1 className="intro-content">Hello,what's your name?</h1>
           <input type="text" className="intro-input" ref={username} />

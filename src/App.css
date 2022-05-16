@@ -19,7 +19,6 @@ background-size: cover;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  min-height: 74vh;
 }
 
 .content{
@@ -52,7 +51,12 @@ background-size: cover;
   margin-bottom: 2rem;
 }
 
+.min-height{
+  min-height: 90vh;
+}
+
 .footer-section{
+  margin-top: 4rem;
   display: flex;
   justify-content: space-between;
 }
