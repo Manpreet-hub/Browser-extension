@@ -1,3 +1,13 @@
+import { getQuotesData } from "../services/";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 export const Quotes = () => {
-  return <div className="text">"Dummy quotes text" </div>;
+  const [quotesData, setQuotesData] = useState("");
+
+  useEffect(() => {
+    getQuotesData(setQuotesData);
+  }, []);
+
+  return <div className="text"> {quotesData}</div>;
 };
