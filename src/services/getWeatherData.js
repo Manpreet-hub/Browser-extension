@@ -5,7 +5,7 @@ export const getWeatherData = async (latitude, longitude, setWeatherInfo) => {
 
   try {
     const getData = await axios.get(wheatherAPI);
-    console.log(getData);
+    // console.log(getData);
     const valuesFromAPI = {
       location: getData.data.name,
       temp: getData.data.main.temp.toFixed(2),
