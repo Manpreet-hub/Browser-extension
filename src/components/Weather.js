@@ -22,19 +22,24 @@ export const Weather = () => {
     const { latitude, longitude } = location;
     if (latitude !== "" && longitude !== "")
       getWeatherData(latitude, longitude, setWeatherInfo);
-    else getWeatherData(28.7041, 77.1025, setWeatherInfo);
-  });
+  }, [location]);
 
   return (
     <div>
-      <img
-        src={`http://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`}
-        width="60px"
-        height="60px"
-        alt={weatherInfo.icon}
-      />
-      <div className="temp text para-md">{weatherInfo.temp}°C</div>
-      <div className="temp-location text">{weatherInfo.location}</div>
+      {weatherInfo.location !== "" &&
+        weatherInfo.icon !== "" &&
+        weatherInfo.temp !== "" && (
+          <>
+            <img
+              src={`http://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`}
+              width="60px"
+              height="60px"
+              alt={weatherInfo.icon}
+            />
+            <div className="temp text para-md">{weatherInfo.temp}°C</div>
+            <div className="temp-location text">{weatherInfo.location}</div>
+          </>
+        )}
     </div>
   );
 };
