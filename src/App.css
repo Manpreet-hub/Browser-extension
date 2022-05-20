@@ -43,7 +43,7 @@ background-size: cover;
   background-color: transparent;
   border: none;
   border-bottom: 5px solid white;
-  width: 64%;
+  width: 40%;
   text-align: center;
   color: white;
   font-size: 2.8rem;
@@ -59,6 +59,7 @@ background-size: cover;
   margin-top: 4rem;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .text{
@@ -69,4 +70,50 @@ background-size: cover;
 .header-section{
 display: flex;
 justify-content: flex-end;
+}
+
+.todo-modal-container{
+  background-color: #eeee;
+  overflow: auto;
+  position: absolute;
+  bottom: 86%;
+  right:1%;
+  border-radius: 2px;
+  height: fit-content;
+  min-width: 15rem;
+  padding: 1rem;
+  z-index: 2;
+}
+
+.todo-input{
+  background-color: transparent;
+  border: none;
+  border-bottom: 4px solid black;
+  outline: none;
+  width: 80%;
+  padding: 4px;
+  margin-top: 1.4rem;
+}
+.add-btn{
+  border: transparent;
+  padding: 0%;
+  font-size: 1.4rem;
+  padding-left: 2 px;
+  cursor: pointer;
+}
+
+.icon{
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.todos-list-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.todos-list{
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 2px;
 }
