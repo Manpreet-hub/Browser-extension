@@ -1,4 +1,4 @@
-import { Todo, Weather, Quotes, Reset } from "../components";
+import { Todo, Weather, Quotes } from "../components";
 
 export const UserInfo = () => {
   const time = new Date();
@@ -16,7 +16,7 @@ export const UserInfo = () => {
 
   return (
     <>
-      <div className="header-section">
+      <div className="flex-end">
         <Weather />
       </div>
       <div className="main-container">
@@ -29,9 +29,12 @@ export const UserInfo = () => {
         <input type="text" className="intro-input" />
       </div>
       <div className="footer-section">
-        <Reset />
-        <Quotes />
-        <Todo />
+        <div className="center-div">
+          <Quotes />
+        </div>
+        <div className="flex-end todo-btn">
+          <Todo />
+        </div>
       </div>
     </>
   );
