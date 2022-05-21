@@ -1,4 +1,5 @@
 import { Todo, Weather, Quotes } from "../components";
+import { useState, useEffect, useRef } from "react";
 
 export const UserInfo = () => {
   const time = new Date();
@@ -14,6 +15,12 @@ export const UserInfo = () => {
     else return " Night";
   };
 
+  const [focus, setFocus] = useState("");
+  const [showFocus, setShowFocus] = useState(false);
+  const [checked, setChecked] = useState(false);
+
+  const focusInput = useRef();
+
   return (
     <>
       <div className="flex-end">
@@ -26,7 +33,48 @@ export const UserInfo = () => {
           {greetings()},{localStorage.getItem("username")} !
         </h3>
         <p className="info-p para-lg">What's your main focus for today?</p>
-        <input type="text" className="intro-input" />
+        {focus !== "" && showFocus ? (
+          <div className="focus-wrapper">
+            <label className="focus-input">
+              <input
+                type="checkbox"
+                className="p para-md"
+                checked={checked}
+                onChange={() => setChecked((prevChecked) => !prevChecked)}
+              />
+              <span
+                style={
+                  checked
+                    ? { textDecoration: "line-through" }
+                    : { textDecoration: "none" }
+                }
+              >
+                {focus}
+              </span>
+              <div
+                onClick={() => {
+                  setChecked(false);
+                  setShowFocus((prevFocus) => !prevFocus);
+                }}
+                className="edit-icon"
+              >
+                <i className="fa-solid fa-pen-to-square icon"></i>
+              </div>
+            </label>
+            {checked ? <h4 className="focus-checked">Good Job</h4> : ""}
+          </div>
+        ) : (
+          <input
+            type="text"
+            className="intro-input"
+            ref={focusInput}
+            onKeyPress={(e) =>
+              e.key == "Enter"
+                ? (setShowFocus(true), setFocus(focusInput.current.value))
+                : ""
+            }
+          />
+        )}
       </div>
       <div className="footer-section">
         <div className="center-div">

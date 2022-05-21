@@ -126,3 +126,27 @@ justify-content: flex-end;
   justify-content: space-between;
   margin: 8px 2px;
 }
+
+.focus-wrapper{
+  margin-top: 4.4rem;
+  gap: 1rem;
+}
+
+.focus-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 2rem;
+  color: white;
+}
+
+.focus-checked{
+  color: white;
+}
+
+.edit-icon{
+  font-size: 1rem;
+  position: relative;
+  top: 4px;
+}
